@@ -4,7 +4,7 @@
 ## What is it?
 MulNet (Multilayer Network) is a framework for decoding diverse molecular interactions underlying gene expression data and organizing them into a scalable multilayer network. Furthermore, MulNet enables the identification of signaling modules and key regulators within this network. This system contains two executable programs: ‘Module Detection.jar’ for network construction and module detection and ‘Survival Analysis.jar’ for prognostic regulator identification.
 
-
+![](https://github.com/free1234hm/MulNet/blob/main/Schematic.png)
 ## Software requirements
 
 - Java 1.5 or later must be installed.  [Download link](http://www.java.com)
