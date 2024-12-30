@@ -122,10 +122,10 @@ public class Main_interface extends JFrame implements ActionListener {
 	JTextField evidenceField;
 	JButton infoButton = new JButton(Util.createImageIcon("About16.gif"));
 	
-	static JFileChooser fc0 = new JFileChooser(new File("Data/Files for Module Detection/1_Regulator-target file"));
-	static JFileChooser fc1 = new JFileChooser(new File("Data/Files for Module Detection/2_Direct interaction file"));
-	static JFileChooser fc3 = new JFileChooser(new File("Data/Files for Module Detection/4_Expression data"));
-	static JFileChooser fc4 = new JFileChooser(new File("Data/Files for Module Detection/5_Saved module file"));
+	static JFileChooser fc0 = new JFileChooser(new File("Data/1_Regulator-target file"));
+	static JFileChooser fc1 = new JFileChooser(new File("Data/2_Direct interaction file"));
+	static JFileChooser fc3 = new JFileChooser();
+	static JFileChooser fc4 = new JFileChooser();
 
 	static Container contentPane;
 	JPanel textpanel;
@@ -500,7 +500,7 @@ public class Main_interface extends JFrame implements ActionListener {
 					}
 				}
 				
-				File directory = new File("Data/Files for Module Detection/3_Enrichment analysis file");
+				File directory = new File("Data/3_Enrichment analysis file");
 				File[] enrichment = directory.listFiles();
 				Enrichmentfiles = new ArrayList<RegulatorBindingData>();
 				if(enrichment!=null && enrichment.length>0) {
