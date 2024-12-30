@@ -126,7 +126,6 @@ public class Main_interface extends JFrame implements ActionListener {
 	static JFileChooser fc1 = new JFileChooser(new File("Data/Files for Module Detection/2_Direct interaction file"));
 	static JFileChooser fc3 = new JFileChooser(new File("Data/Files for Module Detection/4_Expression data"));
 	static JFileChooser fc4 = new JFileChooser(new File("Data/Files for Module Detection/5_Saved module file"));
-	static JFileChooser fc5 = new JFileChooser(new File("Data/Files for Module Detection/3_Enrichment analysis file"));
 
 	static Container contentPane;
 	JPanel textpanel;
@@ -385,10 +384,10 @@ public class Main_interface extends JFrame implements ActionListener {
 	public void clusterscript(Vector<String> knownmodules, Vector<String> ppifile,
 			String szexp1val, String szsavedval, String missing, int missinter, boolean btakelog) throws Exception {
 		
-		//szexp1val = "D:\\Personal issues\\MulNet 2.0\\data\\single-cell data\\GSE103322\\processed data\\primary/pca001_Fibroblast.txt";
-		//String save1 = "D:\\Personal issues\\MulNet 2.0\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\1_Regulator-target file/NicheNet_ligend-TF.txt";
-		//String save2 = "D:\\Personal issues\\MulNet 2.0\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\1_Regulator-target file/NicheNet_TF-targets.txt";
-		//String ppi = "D:\\Personal issues\\MulNet\\MulNet tool\\MulNet v.1.1\\Data\\Files for Module Detection\\2_Direct interaction file/HuRI_PPI.txt";
+		//szexp1val = "D:\\Personal issues\\MulNet\\data\\expression data\\benchmark data\\CCCA\\Dimension50\\Expression/Dimension50_Lung.txt";
+		//String save1 = "D:\\Personal issues\\MulNet\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\1_Regulator-target file/human TF-target all.txt";
+		//String save2 = "D:\\Personal issues\\MulNet\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\1_Regulator-target file/human miRNA-target all.txt";
+		//String ppi = "D:\\Personal issues\\MulNet\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\2_Direct interaction file/human PPI all.txt";
 		//szsavedval = "D:\\Personal issues\\MulNet 2.0\\result\\1 module detection\\0.6-0.998/primary Fibroblast.txt";
 		//knownmodules.add(save1);
 		//knownmodules.add(save2);
@@ -414,18 +413,18 @@ public class Main_interface extends JFrame implements ActionListener {
 				System.out.println(genelist.size());
 				/*
 				try {
-					BufferedWriter outXml1 = new BufferedWriter(new FileWriter("D:/101_T cell.txt"));
+					BufferedWriter outXml1 = new BufferedWriter(new FileWriter("D:/expression.txt"));
 					outXml1.write("Name"+"\t");
-					for(int i=0;i<theDataSet.numcols-1;i++) {
+					for(int i=0;i<theDataSet.numcols;i++) {
 						outXml1.write(theDataSet.dsamplemins[i]+"\t");
 					}
-					outXml1.write(theDataSet.dsamplemins[theDataSet.numcols-1]+"\n");
+					outXml1.newLine();
 					for(int i=0;i<theDataSet.numrows;i++) {
 						outXml1.write(theDataSet.genenames[i]+"\t");
-						for(int j=0;j<theDataSet.numcols-1;j++) {
-							outXml1.write(theDataSet.controldata[i][j]+"\t");
+						for(int j=0;j<theDataSet.numcols;j++) {
+							outXml1.write(theDataSet.controlnorm[i][j]+"\t");
 						}
-						outXml1.write(theDataSet.controldata[i][theDataSet.numcols-1]+"\n");
+						outXml1.newLine();
 					}
 					outXml1.flush();
 					outXml1.close();

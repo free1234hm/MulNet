@@ -116,7 +116,19 @@ public class LearningCase {
 			    		double overlap = 0; 
 			    		for(int nchild=0;nchild<treeptr.numchildren;nchild++){
 				    		String[][] table = treeptr.nextptr[nchild].enrichment.get(i);
+				    		double posi = Double.parseDouble(table[j+1][3]);
+				    		double nega = Double.parseDouble(table[j+1][5]);
 				    		double both = Double.parseDouble(table[j+1][7]);
+				    		if(minpvalue > posi){
+				    			minpvalue = posi;
+				    			count = Integer.parseInt(table[j+1][1]);
+					    		overlap = Integer.parseInt(table[j+1][2]);
+				    		}
+				    		if(minpvalue > nega){
+				    			minpvalue = nega;
+				    			count = Integer.parseInt(table[j+1][1]);
+					    		overlap = Integer.parseInt(table[j+1][4]);
+				    		}
 				    		if(minpvalue > both){
 				    			minpvalue = both;
 				    			count = Integer.parseInt(table[j+1][1]);
@@ -128,17 +140,6 @@ public class LearningCase {
 			    		mintable[j+1][2] = overlap+"";
 			    		mintable[j+1][3] = minpvalue+"";
 			    	}
-			    	int count1=0;
-			    	int count2=0;
-			    	for(int j=1;j<mintable.length;j++) {
-			    		if(Double.parseDouble(mintable[j][3])<=0.01) {
-			    			count1++;
-			    			count2++;
-			    		}else if(Double.parseDouble(mintable[j][3])<=0.05) {
-			    			count2++;
-			    		}
-			    	}
-			    	System.out.println("Significant:"+"\t"+count1+"\t"+count2);
 			    	minenrichmenttable.add(mintable);
 		    	}
 		    }
@@ -219,13 +220,25 @@ public class LearningCase {
 		    		mintable[0][1] = "Total";
 		    		mintable[0][2] = "Overlap";
 		    		mintable[0][3] = "Pvalue";
-			    	for(int j=0;j<knownmodule.regNames.length;j++){
+		    		for(int j=0;j<knownmodule.regNames.length;j++){
 			    		double minpvalue = 1;
 			    		int count = 0;
 			    		double overlap = 0; 
 			    		for(int nchild=0;nchild<treeptr.numchildren;nchild++){
 				    		String[][] table = treeptr.nextptr[nchild].enrichment.get(i);
+				    		double posi = Double.parseDouble(table[j+1][3]);
+				    		double nega = Double.parseDouble(table[j+1][5]);
 				    		double both = Double.parseDouble(table[j+1][7]);
+				    		if(minpvalue > posi){
+				    			minpvalue = posi;
+				    			count = Integer.parseInt(table[j+1][1]);
+					    		overlap = Integer.parseInt(table[j+1][2]);
+				    		}
+				    		if(minpvalue > nega){
+				    			minpvalue = nega;
+				    			count = Integer.parseInt(table[j+1][1]);
+					    		overlap = Integer.parseInt(table[j+1][4]);
+				    		}
 				    		if(minpvalue > both){
 				    			minpvalue = both;
 				    			count = Integer.parseInt(table[j+1][1]);
@@ -243,7 +256,7 @@ public class LearningCase {
 		    
 		    try{
 				BufferedWriter outXml = new BufferedWriter(new FileWriter("Final modules.txt"));
-				outXml.write("Gene"+"\t"+"Module"+"\t"+"Correlation"+"\t");
+				outXml.write("Gene"+"\t"+"Module"+"\t");
 				for(int i=0;i<theDataSet.numcols-1;i++) {
 					outXml.write(theDataSet.dsamplemins[i]+"\t");
 				}
@@ -255,7 +268,7 @@ public class LearningCase {
 					if(posigenelist.size()>0){
 						for(int j=0;j<posigenelist.size();j++){
 							int geneindex = posigenelist.get(j);
-					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"1"+"\t");
+					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module"+(i+1)+"_positive"+"\t");
 					    	for(int m=0;m<theDataSet.numcols-1;m++) {
 					    		outXml.write(theDataSet.controldata[geneindex][m]+"\t");
 					    	}
@@ -265,7 +278,7 @@ public class LearningCase {
 					if(negagenelist.size()>0){
 						for(int j=0;j<negagenelist.size();j++){
 							int geneindex = negagenelist.get(j);
-					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"-1"+"\t");
+					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module"+(i+1)+"_negative"+"\t");
 					    	for(int m=0;m<theDataSet.numcols-1;m++) {
 					    		outXml.write(theDataSet.controldata[geneindex][m]+"\t");
 					    	}
