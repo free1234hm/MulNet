@@ -384,10 +384,10 @@ public class Main_interface extends JFrame implements ActionListener {
 	public void clusterscript(Vector<String> knownmodules, Vector<String> ppifile,
 			String szexp1val, String szsavedval, String missing, int missinter, boolean btakelog) throws Exception {
 		
-		//szexp1val = "D:\\Personal issues\\MulNet\\data\\expression data\\benchmark data\\CCCA\\Dimension50\\Expression/Dimension50_Lung.txt";
-		//String save1 = "D:\\Personal issues\\MulNet\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\1_Regulator-target file/human TF-target all.txt";
-		//String save2 = "D:\\Personal issues\\MulNet\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\1_Regulator-target file/human miRNA-target all.txt";
-		//String ppi = "D:\\Personal issues\\MulNet\\tool\\MulNet v.1.0\\Data\\Files for Module Detection\\2_Direct interaction file/human PPI all.txt";
+		//szexp1val = "D:\\Personal issues\\MulNet\\tool\\MulNet v.2.0\\4_Expression data\\Benchamrk_Data\\Single-cell RNA-seq/Processed_Ovarian.txt";
+		//String save1 = "D:\\Personal issues\\MulNet\\tool\\MulNet v.2.0\\Data\\1_Regulator-target file/human TF-target.txt";
+		//String save2 = "D:\\Personal issues\\MulNet\\tool\\MulNet v.2.0\\Data\\1_Regulator-target file/human miRNA-target.txt";
+		//String ppi = "D:\\Personal issues\\MulNet\\tool\\MulNet v.2.0\\Data\\2_Direct interaction file/human PPI.txt";
 		//szsavedval = "D:\\Personal issues\\MulNet 2.0\\result\\1 module detection\\0.6-0.998/primary Fibroblast.txt";
 		//knownmodules.add(save1);
 		//knownmodules.add(save2);

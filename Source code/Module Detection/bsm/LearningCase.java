@@ -158,7 +158,7 @@ public class LearningCase {
 					if(posigenelist.size()>0){
 						for(int j=0;j<posigenelist.size();j++){
 							int geneindex = posigenelist.get(j);
-					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"1"+"\t");
+					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"positive"+"\t");
 					    	for(int m=0;m<theDataSet.numcols-1;m++) {
 					    		outXml.write(theDataSet.controldata[geneindex][m]+"\t");
 					    	}
@@ -168,7 +168,7 @@ public class LearningCase {
 					if(negagenelist.size()>0){
 						for(int j=0;j<negagenelist.size();j++){
 							int geneindex = negagenelist.get(j);
-					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"-1"+"\t");
+					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"negative"+"\t");
 					    	for(int m=0;m<theDataSet.numcols-1;m++) {
 					    		outXml.write(theDataSet.controldata[geneindex][m]+"\t");
 					    	}
@@ -256,7 +256,7 @@ public class LearningCase {
 		    
 		    try{
 				BufferedWriter outXml = new BufferedWriter(new FileWriter("Final modules.txt"));
-				outXml.write("Gene"+"\t"+"Module"+"\t");
+				outXml.write("Gene"+"\t"+"Module"+"\t"+"Correlation"+"\t");
 				for(int i=0;i<theDataSet.numcols-1;i++) {
 					outXml.write(theDataSet.dsamplemins[i]+"\t");
 				}
@@ -268,7 +268,7 @@ public class LearningCase {
 					if(posigenelist.size()>0){
 						for(int j=0;j<posigenelist.size();j++){
 							int geneindex = posigenelist.get(j);
-					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module"+(i+1)+"_positive"+"\t");
+					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"positive"+"\t");
 					    	for(int m=0;m<theDataSet.numcols-1;m++) {
 					    		outXml.write(theDataSet.controldata[geneindex][m]+"\t");
 					    	}
@@ -278,7 +278,7 @@ public class LearningCase {
 					if(negagenelist.size()>0){
 						for(int j=0;j<negagenelist.size();j++){
 							int geneindex = negagenelist.get(j);
-					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module"+(i+1)+"_negative"+"\t");
+					    	outXml.write(theDataSet.genenames[geneindex]+"\t"+"Module_"+(i+1)+"\t"+"negative"+"\t");
 					    	for(int m=0;m<theDataSet.numcols-1;m++) {
 					    		outXml.write(theDataSet.controldata[geneindex][m]+"\t");
 					    	}
@@ -289,9 +289,9 @@ public class LearningCase {
 				outXml.flush(); 
 				outXml.close();
 				System.out.println("DONE");
-			} catch (Exception e) {
+			}catch (Exception e) {
 				System.out.println("FALSE"); 
-				e.printStackTrace(); 
+			e.printStackTrace(); 
 			}
 	    }
 	    
